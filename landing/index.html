@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedabase for Kiwix — Offline Library</title>
+    <style>
+        :root { --bg: #0f0c08; --card: #1a1610; --border: rgba(201,168,76,0.15); --gold: #c9a84c; --gold-light: #e8d48b; --text: #e8e0d4; --muted: #a89b8a; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+        .container { max-width: 700px; margin: 0 auto; padding: 3rem 1.5rem; }
+        header { text-align: center; padding: 2rem 0; }
+        header h1 { font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem; }
+        header p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+        .version { color: var(--muted); font-size: 0.75rem; margin-top: 0.5rem; }
+        .download-box { background: var(--card); border: 2px solid var(--gold); border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0; }
+        .download-title { font-size: 1.3rem; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; }
+        .download-size { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .dl-btn { display: inline-block; padding: 0.85rem 2.5rem; background: var(--gold); color: var(--bg); border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.2s; }
+        .dl-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+        .stats { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+        .stat-label { font-size: 0.75rem; color: var(--muted); }
+        .section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 1.5rem 0; }
+        .section h2 { color: var(--gold); font-size: 1.1rem; margin-bottom: 1rem; }
+        .section p, .section li { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+        .section ul, .section ol { padding-left: 1.5rem; }
+        .section li { margin-bottom: 0.5rem; }
+        .section a { color: var(--gold); }
+        .section code { background: rgba(255,255,255,0.05); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+        .highlight { color: var(--gold-light); font-weight: 500; }
+        .books-list { columns: 2; column-gap: 2rem; }
+        .books-list li { break-inside: avoid; }
+        .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+        .platform { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+        .platform-name { font-weight: 600; color: var(--text); font-size: 0.9rem; margin-bottom: 0.25rem; }
+        .platform-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+        .badge { display: inline-block; background: rgba(201,168,76,0.15); color: var(--gold); font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 500; margin-left: 0.25rem; }
+        footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+        footer a { color: var(--gold); text-decoration: none; }
+        @media (max-width: 600px) { .books-list { columns: 1; } .stats { gap: 1rem; } .platform-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Vedabase for Kiwix</h1>
+        <p>The complete works of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada — Original Edition — available as a ZIM file for offline browsing with the free Kiwix reader.</p>
+        <div class="version">v1.4 — October 10, 2026</div>
+    </header>
+
+    <div class="download-box">
+        <div class="download-title">Download ZIM File</div>
+        <div class="download-size">41.7 MB — works with any Kiwix reader</div>
+        <a class="dl-btn" href="https://pub-9ebe02965a9f4aeb9c5d3d9741790d2d.r2.dev/vedabase_en_all_2026-10.zim">Download vedabase_en_all_2026-10.zim</a>
+        <div class="stats">
+            <div class="stat"><div class="stat-num">29</div><div class="stat-label">books</div></div>
+            <div class="stat"><div class="stat-num">8,817</div><div class="stat-label">articles</div></div>
+            <div class="stat"><div class="stat-num">6,467</div><div class="stat-label">letters</div></div>
+            <div class="stat"><div class="stat-num">41.7</div><div class="stat-label">MB</div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Install by platform</h2>
+        <div class="platform-grid">
+            <div class="platform">
+                <div class="platform-name">Windows</div>
+                <div class="platform-desc">Download <a href="https://kiwix.org/en/download/" target="_blank">Kiwix Desktop</a>. Open the .zim file from the File menu.</div>
+            </div>
+            <div class="platform">
+                <div class="platform-name">Mac</div>
+                <div class="platform-desc">Install <a href="https://apps.apple.com/app/kiwix/id997079563" target="_blank">Kiwix from the App Store</a>. Double-click the .zim file.</div>
+            </div>
+            <div class="platform">
+                <div class="platform-name">Linux</div>
+                <div class="platform-desc">Install via Flatpak, AppImage, or <code>apt install kiwix</code>. Or use <code>kiwix-serve vedabase_en_all_2026-10.zim</code> and open localhost:8080.</div>
+            </div>
+            <div class="platform">
+                <div class="platform-name">Android / iOS</div>
+                <div class="platform-desc">Install Kiwix from <a href="https://play.google.com/store/apps/details?id=org.kiwix.kiwixmobile" target="_blank">Google Play</a> or <a href="https://apps.apple.com/app/kiwix/id997079563" target="_blank">App Store</a>. Import the .zim file.</div>
+            </div>
+            <div class="platform">
+                <div class="platform-name">Raspberry Pi <span class="badge">Hotspot</span></div>
+                <div class="platform-desc">Install <code>kiwix-serve</code> and serve the ZIM over local WiFi. Ideal for temples and retreats without internet.</div>
+            </div>
+            <div class="platform">
+                <div class="platform-name">USB Drive</div>
+                <div class="platform-desc">Copy the .zim file + Kiwix portable to a USB. Share with anyone — plug in and read, no install needed.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>What's included</h2>
+        <ul class="books-list">
+            <li>Bhagavad-gita As It Is</li>
+            <li>Srimad-Bhagavatam</li>
+            <li>Sri Caitanya-caritamrta</li>
+            <li>Krsna Book</li>
+            <li>Nectar of Devotion</li>
+            <li>Nectar of Instruction</li>
+            <li>Sri Isopanisad</li>
+            <li>Teachings of Lord Caitanya</li>
+            <li>Teachings of Lord Kapila</li>
+            <li>Teachings of Queen Kunti</li>
+            <li>Teachings of Prahlada Maharaja</li>
+            <li>Science of Self-Realization</li>
+            <li>Raja-vidya</li>
+            <li>Path of Perfection</li>
+            <li>Perfect Questions, Perfect Answers</li>
+            <li>Perfection of Yoga</li>
+            <li>Beyond Birth and Death</li>
+            <li>Easy Journey to Other Planets</li>
+            <li>Elevation to Krsna Consciousness</li>
+            <li>Life Comes from Life</li>
+            <li>Light of the Bhagavata</li>
+            <li>On the Way to Krsna</li>
+            <li>Reservoir of Pleasure</li>
+            <li>Second Chance</li>
+            <li>Topmost Yoga System</li>
+            <li>Lectures (1,054 entries)</li>
+            <li>Conversations (651 entries)</li>
+            <li>Letters (6,467 entries)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>About the Original Edition</h2>
+        <p>This ZIM contains Prabhupada's books exactly as he wrote and approved them — the <span class="highlight">Macmillan 1972 Bhagavad-gita</span> and original BBT editions, before any posthumous revisions were made.</p>
+        <p>All texts include <span class="highlight">full Sanskrit diacritics</span> (Kṛṣṇa, Bhagavad-gītā, Vṛndāvana) and proper <span class="highlight">italics</span> for book titles and Sanskrit terms, faithful to the original printed editions.</p>
+        <p style="margin-top:1rem;">Source: <a href="https://vedabase.vedicvault.org" target="_blank">vedabase.vedicvault.org</a></p>
+    </div>
+
+    <div class="section">
+        <h2>Changelog</h2>
+        <ul>
+            <li><strong>v1.4</strong> (Oct 10, 2026) — Renamed to vedabase_en_all per the openZIM naming convention. Added icon, tags, scraper and long description metadata, and a full-text search index. Submitted to the Kiwix library.</li>
+            <li><strong>v1.3</strong> (Mar 28, 2026) — Fixed Balaram font diacritics in titles and body. Fixed italics rendering. Removed stray TOC entry in Bhagavad-gita. Added ZIM metadata.</li>
+            <li><strong>v1.0</strong> (Mar 25, 2026) — Initial release. 8,817 articles from 29 books, lectures, conversations, and letters.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Want more?</h2>
+        <p><a href="https://veda.vedicvault.org" target="_blank"><strong>V.E.D.A.</strong></a> — Full offline app with search across 58,437 passages, AI answers, and a Bhakti Yoga course. Works on Mac, Windows, and Linux.</p>
+    </div>
+
+    <footer>
+        <a href="https://www.vedicvault.org">vedicvault.org</a> · <a href="https://veda.vedicvault.org">V.E.D.A.</a> · <a href="https://course.vedicvault.org">Bhakta Course</a>
+    </footer>
+</div>
+</body>
+</html>
