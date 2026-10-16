@@ -77,9 +77,18 @@ destinatario, que es correcto. Los transcripts no tenian el fallo (0 de 3.717).
 Los transcripts se construyen con `python3.14` de Homebrew: es el unico
 interprete del mini con `markdown`, `libzim` y `pillow`.
 
+## Resubido (16-oct, 18:08 UTC)
+`vedabase-files/vedabase_en_all_2026-10.zim`, misma clave y misma URL.
+Verificado sobre lo que sirve R2, no sobre el log: 61.575.844 bytes,
+`Content-Type: application/x-openzim`, sha256 del fichero descargado =
+472fc06581d35152b0661bcf50ad6d28d1a3b10806b472f939d7a71deed8eee6 (igual al
+construido). Esa copia descargada abierta con libzim: 31.332 articulos,
+0 titulos con el pegote «<lugar>Letter,», `krp` y `lob` con titulo limpio,
+`Source` = https://vedabase.cc, busqueda «Kurukṣetra armies» -> bg/1.
+Abierto tambien en Kiwix.app del mini.
+
 ## Pendiente del usuario
-- **GO para resubir a R2**: en produccion esta todavia la version de las 12:40,
-  la que trae los titulos de carta pegados. Comando:
-  `npx wrangler r2 object put vedabase-files/vedabase_en_all_2026-10.zim --file build/vedabase_en_all_2026-10.zim --content-type application/x-openzim --remote`
-- Responder en openzim/zim-requests#1703 (borrador redactado, al portapapeles)
-  DESPUES de resubir, porque el mensaje da el sha256 del fichero nuevo.
+- Responder en openzim/zim-requests#1703. Borrador en ingles listo (da este
+  sha256 y los 61.575.844 bytes); dice lo arreglado, los tres libros que quedan
+  fuera, que las rutas internas cambian, y que `zimcheck` no se ha pasado porque
+  no hay zim-tools en el mini.
