@@ -1,2 +1,4 @@
 vedabase.md
 __pycache__/
+build/
+*.zim

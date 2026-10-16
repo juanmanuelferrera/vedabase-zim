@@ -1,12 +1,23 @@
 # Vedabase ZIM
 
-Offline archive of [Vedabase](https://vedabase.io) — the complete works of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada — in [ZIM format](https://wiki.openzim.org/wiki/ZIM_file_format) for use with [Kiwix](https://kiwix.org).
+Offline archive of [Vedabase Original Edition](https://vedabase.cc) — the complete works of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada — in [ZIM format](https://wiki.openzim.org/wiki/ZIM_file_format) for use with [Kiwix](https://kiwix.org).
 
 ## Download
 
 - [vedabase.zim on archive.org](https://archive.org/details/vedabase-zim)
 
 ## Building from source
+
+Current builder (v2): `build_zim_d1.py`, from the vedabase.cc D1 export
+(`vedabase-original/scripts/export_d1.sh`, copied to `build/d1md/`):
+
+```bash
+python build_zim_d1.py build/vedabase_en_all_YYYY-MM.zim build/icon48.png
+```
+
+Needs `libzim`, `markdown`, `pillow`. The steps below are the old v1 builder.
+
+### Old v1 builder
 
 ### Requirements
 
