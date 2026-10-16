@@ -348,9 +348,13 @@ def build_letters():
         text = format_letter(r.get('translation'), r.get('purport'))
         name = re.sub(r'^Letter to:\s*', '', (r.get('translation') or '').strip())
         dm = re.search(r'Dated:\s*([A-Z][a-z]+ \d{1,2}(?:st|nd|rd|th)?,? \d{4})', r.get('purport') or '')
-        lm = re.search(r'Location:\s*([A-Z][a-zA-Z.]*(?: [A-Z][a-zA-Z.]*){0,2})', r.get('purport') or '')
+        lm = re.search(r'Location:\s*([A-Z][^\n]*?)\s*'
+                       r'(?=Letter to:|Dated:|Type:|Audio file:|\d|\n|$)', r.get('purport') or '')
         d = parse_date(dm.group(1) if dm else '')
-        where = ', '.join(x for x in [lm.group(1).strip() if lm else '', nice_date(d)] if x)
+        place = (lm.group(1).strip() if lm else '').split(',')[0].strip().rstrip(';:')
+        if len(place) > 30:
+            place = ''      # no es un lugar, es el membrete de la carta
+        where = ', '.join(x for x in [place, nice_date(d)] if x)
         title = f'Letter to {name}' + (f' — {where}' if where else '')
         body = md(re.sub(r'^#.*\n', '', text, count=1))
         by_year[str(d[0]) if d else 'Undated'].append((r['ref'], title, body, d or (9999, 0, 0)))
@@ -399,6 +403,7 @@ def main():
     for t, idx in groups.items():
         if len(idx) < 2:
             continue
+        idx.sort(key=lambda j: (PAGES[j][0].count('/'), PAGES[j][0]))
         for k, i in enumerate(idx):
             p, _, h = PAGES[i]
             top = p.split('/')[0]

@@ -53,5 +53,33 @@ la fuente y ya subido a la misma URL.
   «Kurukṣetra armies» → `bg/1` primero.
 - Abierto en Kiwix.app del Mac mini. Revisión a ojo en la app: del usuario.
 
+## Segunda pasada (16-oct, tarde): dos defectos de titulo propios
+Al preparar la respuesta del issue aparecieron dos fallos del generador NUEVO,
+no del viejo:
+- **5.738 de 6.611 titulos de carta** ponian «Letter to X — BombayLetter,
+  22 Nov 1974». En D1 los campos del encabezado vienen pegados sin separador
+  («Location: BombayLetter to: ...»), y la regex contaba palabras en mayuscula,
+  asi que se tragaba la palabra siguiente. Ahora corta en el campo siguiente
+  (`Letter to:|Dated:|Type:|Audio file:|digito|fin`), se queda con lo anterior a
+  la primera coma y descarta lo que pase de 30 caracteres, que es membrete y no
+  lugar. Quedan 131 lugares distintos y 322 cartas sin lugar (no lo traen).
+- El indice de `krp` se titulaba «Kṛṣṇa, the Reservoir of Pleasure (2)»: choca
+  con su unico capitulo y el sufijo caia en el indice. El desempate ahora ordena
+  por profundidad de ruta, asi que el titulo limpio se queda en el indice.
+
+Reconstruido: 61.575.844 bytes, sha256
+472fc06581d35152b0661bcf50ad6d28d1a3b10806b472f939d7a71deed8eee6.
+Verificado: 31.332 articulos, 0 titulos con el pegote, 0 enlaces internos
+rotos, titulo mas largo 277, `krp` limpio, busqueda «Kurukṣetra armies» -> bg/1.
+Los 166 sufijos «(N)» que quedan son cartas distintas del mismo dia al mismo
+destinatario, que es correcto. Los transcripts no tenian el fallo (0 de 3.717).
+
+Los transcripts se construyen con `python3.14` de Homebrew: es el unico
+interprete del mini con `markdown`, `libzim` y `pillow`.
+
 ## Pendiente del usuario
-- Responder en openzim/zim-requests#1703.
+- **GO para resubir a R2**: en produccion esta todavia la version de las 12:40,
+  la que trae los titulos de carta pegados. Comando:
+  `npx wrangler r2 object put vedabase-files/vedabase_en_all_2026-10.zim --file build/vedabase_en_all_2026-10.zim --content-type application/x-openzim --remote`
+- Responder en openzim/zim-requests#1703 (borrador redactado, al portapapeles)
+  DESPUES de resubir, porque el mensaje da el sha256 del fichero nuevo.
