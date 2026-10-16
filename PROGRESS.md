@@ -24,14 +24,34 @@ frase. El usuario decidió rehacerlo ahora.
   - LoB, Reservoir y el resto: índice enlazado, una página por capítulo.
 
 ## NO probado
-- No abierto en Kiwix (no hay kiwix-serve ni zimcheck instalados).
+- La lectura en la propia app Kiwix. En el mini no hay `kiwix-serve` ni
+  `zimcheck`; todo lo verificado arriba es con `libzim`, que lee el fichero
+  pero no es el visor. El fichero sí se abrió en Kiwix.app, y mirarlo a ojo
+  (títulos del Gītā, índice de LoB, búsqueda) queda del usuario.
 
 ## Siguiente paso exacto
-El usuario: abrir `build/vedabase_en_all_2026-10.zim` en Kiwix Desktop y dar GO
-para subirlo a R2 (misma URL que usa landing/index.html) y responder en
-zim-requests#1703.
+Responder en openzim/zim-requests#1703 diciendo que el ZIM está rehecho desde
+la fuente y ya subido a la misma URL.
+
+## Decidido (16-oct-2026)
+- **El ZIM lleva lo que está en D1 y nada más** (decisión del usuario,
+  16-oct-2026). Los tres libros que el ZIM viejo traía y D1 no tiene
+  —Teachings of Lord Kapila, Teachings of Prahlāda Mahārāja, Second Chance—
+  quedan fuera, y seguirán fuera mientras no entren en D1. `ORDER` de
+  `build_zim_d1.py` son los 24 libros de D1; el generador no los contempla.
+  Comprobado en el ZIM nuevo: ninguna entrada de esos tres libros (las 23
+  coincidencias de «Kapila/Prahlāda» son cartas y capítulos del SB legítimos;
+  el viejo tenía además `b10 Teachings of Prahlada Maharaja`).
+- Subido a R2 (`vedabase-files/vedabase_en_all_2026-10.zim`, misma clave y misma
+  URL, así que no hubo que desplegar el sitio). Verificado sobre lo que sirve
+  R2, no sobre el log: sha256 del fichero descargado =
+  54b03640cc06a69bd2eb75c8b2c52aa87093f58c57193f0af44d8db5ff5687b9, igual al
+  construido; 61.775.037 bytes; `Content-Type: application/x-openzim`. Esa copia
+  descargada se abrió con libzim: 31.332 artículos, título más largo de 283
+  caracteres (el recorte a 80 del viejo ya no está), `bg/1` =
+  «Chapter 1: Observing the Armies on the Battlefield of Kurukṣetra», búsqueda
+  «Kurukṣetra armies» → `bg/1` primero.
+- Abierto en Kiwix.app del Mac mini. Revisión a ojo en la app: del usuario.
 
 ## Pendiente del usuario
-- Libros que el ZIM viejo tenía y D1 no: Teachings of Lord Kapila,
-  Teachings of Prahlāda Mahārāja, Second Chance. Quedan fuera.
-- Subida a R2 y respuesta en GitHub: con GO.
+- Responder en openzim/zim-requests#1703.
