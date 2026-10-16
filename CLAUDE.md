@@ -19,7 +19,6 @@ que tiene `markdown`, `libzim` y `pillow`.
   propios que salieron despues (el lugar pegado en los titulos de carta, el
   sufijo `(2)` en el indice de `krp`).
 - **Siguiente accion:** pegar en openzim/zim-requests#1703 la respuesta ya
-  redactada a @Popolechien (borrador en el historial de la sesion del 16-oct;
-  si se ha perdido, rehacerlo con los datos de `PROGRESS.md`). Lo unico sin
+  redactada a @Popolechien: esta en `respuesta-zim-requests-1703.md`. Lo unico sin
   verificar es `zimcheck`: no hay zim-tools en el mini.
 - Detalle y verificaciones: `PROGRESS.md`.
