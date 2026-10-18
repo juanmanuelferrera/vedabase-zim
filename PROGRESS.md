@@ -1,5 +1,8 @@
 # PROGRESS — Rehacer vedabase_en_all desde la fuente (16-oct-2026)
 
+Estado: ZIM rehecho desde D1 y subido a la misma URL (16-oct).
+Siguiente: Responder en openzim/zim-requests#1703 que el ZIM está rehecho desde la fuente.
+
 Motivo: revisión de Kiwix (openzim/zim-requests#1703, Popolechien): títulos
 cortados («1. Observing the Armies on the») e índice sin enlaces en
 Light of the Bhagavata. El ZIM 2026-10 anterior era una copia del vedabase.zim
